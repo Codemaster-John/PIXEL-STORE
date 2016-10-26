@@ -20,9 +20,10 @@ CO STRONA ZAOFERUJE:
 - Pobieranie aplikacji na swój komputer
 
 DANE TECHNICZNE:
-- Projekt będzie wykonany w środowisku producenta "JetBrains" i celowany na przeglądarki Microsoft Egde.
+- Projekt będzie wykonany w środowisku Visual Studio Code i celowany na przeglądarki Microsoft Egde.
 
 WYMAGANIA: 
+- System operacyjny Windows 10
 - Przeglądarka Microsoft Edge (najlepiej wersja po Anniversary Update)
 
 HARMONOGRAM PRACY:
