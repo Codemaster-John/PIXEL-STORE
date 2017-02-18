@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 
 <title>PIXEL STORE</title>
-<!--<link rel="Shortcut icon" href="pixel.jpg"> -->
 
 <style>
 body 
@@ -111,6 +110,8 @@ li1 a {
 <ul>
   <li id="logo"><a href="index.html"><img src="pixel.jpg" alt= "Pixel logo" width="30" height="30"><strong><span style="color: rgb(60, 186, 84)"> P</span><span style="color: rgb(72, 133, 237)">I</span><span style="color: rgb(224, 224, 224)">X</span><span style="color: rgb(244, 194, 13)">E</span><span style="color: rgb(219, 50, 54)">L</span></strong><span style="font-size: 16px; color: rgb(224, 224, 224)"> STORE</span></a></li>
   <li><a href="#info">INFO</a></li>
+  <li><a id="login" href="login.html">ZALOGUJ</a></li>
+  <li><a id="logout">WYLOGUJ</a></li>
 </ul>
 <hr>
 
@@ -120,7 +121,7 @@ li1 a {
 </pre>
 
 <ul1>
-    <li1><a href="Kalkulajtor.exe" download>DOWNLOAD</a></li1>
+    <li1><a id="download" href="Kalkulajtor.exe" download>DOWNLOAD</a></li1>
 </ul1>
 <!--<center><a id="przycisk" href="info.html">Kalkulajtor</a></center>-->
 
@@ -137,6 +138,50 @@ li1 a {
 <img src="Wykresy.jpg" alt="Wykresy" height="520"; width="300" style='float:right'>
 </div>
 
+<script>
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+if(getCookie('user') == 1)
+{
+    document.getElementById('login').style.display = 'none';
+    //hide login form
+    
+    //show download url
+    document.getElementById("download").style.display = 'block';
+    //show logout button
+}
+else
+{
+    document.getElementById("logout").style.display = 'none';
+    document.getElementById("download").style.display = 'none';
+}
+function logout()
+{
+
+    // delete cookie 'user'
+    
+    // hide logout button
+    
+    // show login form
+    
+    // hide download url
+}
+
+</script>
 
 </body>
 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>PIXEL STORE</title>
+
+<style>
+body 
+{
+    background-color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 1px;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: #92989b;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 16px;
+    font-family: arial;
+}
+
+li a:hover {
+    background-color: rgb(249, 249, 249); 
+    color:#6ab344;  
+}
+
+#logo {
+    float: left;
+}
+
+#logo a {
+    display: block;
+    color: lightblue;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    margin: 2px;
+    font-size: 36px;
+    font-family: 'Amiko', sans-serif;
+}
+
+#logo a:hover {
+    background-color: rgb(249, 249, 249);
+}
+
+hr {
+    border-width: 0.1px;
+    color: rgb(224, 224, 224);
+    background-color: rgb(224, 224, 224);
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<ul>
+  <li id="logo"><a href="#home"><img src="pixel.jpg" alt= "Pixel logo" width="30" height="30"><strong><span style="color: rgb(60, 186, 84)"> P</span><span style="color: rgb(72, 133, 237)">I</span><span style="color: rgb(224, 224, 224)">X</span><span style="color: rgb(244, 194, 13)">E</span><span style="color: rgb(219, 50, 54)">L</span></strong><span style="font-size: 16px; color: rgb(224, 224, 224)"> STORE</span></a></li>
+  <li><a href="#info">INFO</a></li>
+</ul>
+<hr>
+
+<div id = "loginform">
+<form>
+    <label>LOGIN<input id="login" type="text"></label>
+    <label>HASŁO<input id="haslo" type="password"></label>
+    <input id="loginButton" type="button" value="ZALOGUJ">
+    <!--<div id="demo"></div>-->
+</form>
+</div>
+
+<script>
+
+function login() {
+    if(document.getElementById("login").value == 'user' && document.getElementById("haslo").value == 'pass')
+    {
+        setCookie('user',1,1);
+        window.location.href = "info.html";
+    }
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }
+}
+
+if(getCookie("user")!=="")
+{
+    window.location.href = "info.html";
+}
+
+document.getElementById('loginButton').onclick = function() { login(); };
+
+</script>
+
+
+</body>
+
+</html>
