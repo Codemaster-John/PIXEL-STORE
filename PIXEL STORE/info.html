@@ -171,15 +171,13 @@ else
 }
 function logout()
 {
-
-    // delete cookie 'user'
-    
-    // hide logout button
-    
-    // show login form
-    
-    // hide download url
+    document.getElementById("logout").style.display = 'none';
+    document.getElementById("download").style.display = 'none';
+    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
 }
+
+document.getElementById('logout').onclick = function() { logout(); return false; };
+
 
 </script>
 

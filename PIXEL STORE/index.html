@@ -106,8 +106,8 @@ pre
 <ul>
   <li id="logo"><a href="#home"><img src="pixel.jpg" alt= "Pixel logo" width="30" height="30"><strong><span style="color: rgb(60, 186, 84)"> P</span><span style="color: rgb(72, 133, 237)">I</span><span style="color: rgb(224, 224, 224)">X</span><span style="color: rgb(244, 194, 13)">E</span><span style="color: rgb(219, 50, 54)">L</span></strong><span style="font-size: 16px; color: rgb(224, 224, 224)"> STORE</span></a></li>
   <li><a href="#info">INFO</a></li>
-  <li><a href="login.html">ZALOGUJ</a></li>
-  <li><a href="">WYLOGUJ</a></li>
+  <li><a id="login" href="login.html">ZALOGUJ</a></li>
+  <li><a id="logout" href="">WYLOGUJ</a></li>
 </ul>
 <hr>
 
@@ -124,6 +124,42 @@ pre
 </a>
 
 <center><a id="przycisk" href="info.html">Kalkulajtor</a></center>
+
+<script>
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+if(getCookie('user') == 1)
+{
+    document.getElementById('login').style.display = 'none';
+}
+else
+{
+    document.getElementById("logout").style.display = 'none';
+}
+function logout()
+{
+    document.getElementById("logout").style.display = 'none';
+    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+}
+
+document.getElementById('logout').onclick = function() { logout(); return false; };
+
+
+</script>
 
 </body>
 
